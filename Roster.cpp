@@ -52,15 +52,35 @@ void Roster::parseAndAdd(string datarow)
 	lhs = rhs + 1;
 	rhs = datarow.find(",", lhs);
 	string degreeString = datarow.substr(lhs, rhs - lhs);
-	switch (degreeString)
-		case "SECURITY"
 
-	add(sID, sFirstName, sLastName, sEmail, sAge, days1, days2, days3)
+	Degree degreeProgram;
+	
+	if (degreeString == "SECURITY") degreeProgram = SECURITY;
+	else if (degreeString == "NETWORK") degreeProgram = NETWORK;
+	else if (degreeString == "SOFTWARE") degreeProgram = SOFTWARE;
+
+	
+
+	add(sID, sFirstName, sLastName, sEmail, sAge, days1, days2, days3, degreeProgram);
 
 }
 
-void Roster::add(string studentId, string firstName, string lastName, string email, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degree)
+void Roster::add(string studentId, string firstName, string lastName, string emailaddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree degreetype)
 {
+	int daysInCourse[Student::daysArraySize] = { daysInCourse1, daysInCourse2, daysInCourse3 };
+	Student* student = nullptr;
+
+	switch (degreetype) {
+	case SECURITY:
+		student = new SecurityStudent(studentId, firstName, lastName, emailaddress, age, daysInCourse, degreetype);
+		break;
+	case NETWORK:
+		student = new NetworkStudent(studentId, firstName, lastName, emailaddress, age, daysInCourse, degreetype);
+		break;
+	case SOFTWARE:
+		student = new SoftwareStudent(studentId, firstName, lastName, emailaddress, age, daysInCourse, degreetype);
+		break;
+	}
 }
 
 void Roster::remove(string studentId)
