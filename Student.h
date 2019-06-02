@@ -18,6 +18,7 @@ protected:
 	Degree dtype;
 
 public:
+	int daysArraySize = 3;
 
 	/*Contructor*/
 	Student();
