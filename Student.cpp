@@ -56,11 +56,11 @@ void Student::setNumDays(int daysInCourse[])
 
 /*Print*/
 void Student::print() {
-	cout << getStudent_ID();
-	cout << "First Name: " << getFirst_Name();
-	cout << "Last Name: " << getLast_Name();
-	cout << "Age: " << getAge();
-	cout << "Days in Course: " << daysInCourse[0] << ", " << daysInCourse[1] << ", " << daysInCourse[2];
+	cout << getStudent_ID() << "\t";
+	cout << "First Name: " << getFirst_Name() << "\t";
+	cout << "Last Name: " << getLast_Name() << "\t";
+	cout << "Age: " << getAge() << "\t";
+	cout << "Days in Course: " << daysInCourse[0] << ", " << daysInCourse[1] << ", " << daysInCourse[2] << "\t";
 }
 
 Student::~Student()
