@@ -1,7 +1,8 @@
 #pragma once
 #include "Student.h"
 #include "degree.h"
-class SoftwareStudent : public Student
+class SoftwareStudent : 
+	public Student
 {
 
 public:
